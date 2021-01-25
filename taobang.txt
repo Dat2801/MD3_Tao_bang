@@ -1,0 +1,21 @@
+create database tableNew;
+use tableNew;
+create table contacts
+(
+    contact_id int(11)     not null auto_increment,
+    last_name  varchar(30) not null,
+    first_name varchar(25),
+    birthday   date,
+    constraint contact_pk primary key (contact_id)
+);
+create table suppliers
+(
+    suppliers_id   int(11)     not null auto_increment,
+    suppliers_name varchar(50) not null,
+    account_rep    varchar(30) not null default 'TBD',
+    constraint suppliers_pk primary key (suppliers_id)
+);
+drop table suppliers;
+alter table contacts add phone_name varchar(10) not null after contact_id;
+alter table contacts modify last_name varchar(50) null ;
+alter table contacts drop column phone_name;
